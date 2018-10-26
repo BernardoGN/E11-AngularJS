@@ -7,7 +7,8 @@
     </head> 
     <body> 
         <form action="exe4.html">
-            <p>First name: <input type="number" ng-init="preco = 2" ng-model="preco"></p>
+            <h1>Cálculo imposto sobre a água mineral</h1>
+            <p>Preço inicial: <input type="number" ng-init="preco = 2" ng-model="preco"></p>
             <p>Imposto: R${{preco * 0.44}}</p>
             <p>Imposto inicial: R${{::preco * 0.44}}</p>
         </form>
