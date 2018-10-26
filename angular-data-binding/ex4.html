@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html ng-app> 
+    <head> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script> 
+        <meta charset="utf-8"> 
+        <title>Exercício 4 - Imposto sobre Água mineral</title> 
+    </head> 
+    <body> 
+        <form action="exe4.html">
+            <p>First name: <input type="number" ng-init="preco = 2" ng-model="preco"></p>
+            <p>Imposto: R${{preco * 0.44}}</p>
+            <p>Imposto inicial: R${{::preco * 0.44}}</p>
+        </form>
+    </body> 
+</html> 
+
