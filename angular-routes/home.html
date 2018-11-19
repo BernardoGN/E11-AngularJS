@@ -1,1 +1,8 @@
 <h1>Home Page</h1>
+
+<label for="idade">Sua idade</label><br>
+<input id="idade" type="number" ng-model="idade"/>
+<input type="button" ng-click="ctrl.enter(idade)" value="Entrar">
+<div style="margin-top:100px">
+    {{ctrl.text}}
+</div>

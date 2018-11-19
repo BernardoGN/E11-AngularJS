@@ -5,13 +5,17 @@ var app = angular.module('my-app', ['ngRoute']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "home.html"
+            templateUrl: "home.html",
+            controller: "MainController",
+            controllerAs: "ctrl"
         })
         .when("/about", {
             templateUrl: "about.html",
         })
-        .when("/documentation", {
+        .when("/documentation/:age", {
             templateUrl: "documentation.html",
+            controller: "DocsController",
+            controllerAs: "docsCtrl"
         })
         .when("/erro", {
             templateUrl: "erro.html"
@@ -20,3 +24,21 @@ app.config(function ($routeProvider) {
             redirectTo: '/erro'
         });
 });
+
+app.controller("MainController", function($location) {
+    this.text = '';
+    this.enter = function(age) {
+        if (age >= 18){
+            $location.path("documentation/" + age);
+        }else{
+            this.text = "Muito jovem :(";
+        }
+      };
+  });
+
+  app.controller("DocsController", function($routeParams, $location) {  
+    this.age = $routeParams.age;
+    if (this.age < 18){
+        $location.path("/");
+    }
+  });
